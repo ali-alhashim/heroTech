@@ -1,0 +1,11 @@
+.brand{
+
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.notifications-chat{
+    display: flex;
+    gap: 48px;
+    margin-right: 25px;
+}
