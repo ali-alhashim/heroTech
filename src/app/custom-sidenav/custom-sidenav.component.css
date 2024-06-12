@@ -31,9 +31,11 @@
     border-left-color: rgba(0, 0, 0, 0);
   }
   
- 
-  .selected-menu-item {
-    border-left-color: var(--primary-color);
-    background: rgba(0, 0, 0, 0.05);
-  }
+
   
+  .mdc-list-item--activated {
+    color: #b53f3f !important; /* Note: You could also use a custom theme */
+    border-left: solid 5px #b53f3f;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+  }

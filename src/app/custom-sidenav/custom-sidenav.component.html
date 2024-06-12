@@ -4,7 +4,7 @@
         <p>Ali M. Alhashim</p>
     </div>
     <mat-nav-list>
-       <a mat-list-item *ngFor="let item of menuItems()" class="menu-item">
+       <a mat-list-item *ngFor="let item of menuItems()" class="menu-item" [routerLink]="item.route" routerLinkActive #rla="routerLinkActive" [activated]="rla.isActive">
         <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
         <span matListItemTitle *ngIf="!sideNavCollapsed()">{{item.lable}}</span>
        </a> 

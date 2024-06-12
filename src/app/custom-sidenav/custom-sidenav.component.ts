@@ -2,7 +2,7 @@ import { Component, Input, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatListModule} from '@angular/material/list'
 import { MatIconModule } from '@angular/material/icon';
-
+import { RouterModule } from '@angular/router';
 
 export type MenuItem = {
    icon  :string;
@@ -14,7 +14,7 @@ export type MenuItem = {
 @Component({
   selector: 'app-custom-sidenav',
   standalone: true,
-  imports: [CommonModule, MatListModule, MatIconModule],
+  imports: [CommonModule, MatListModule, MatIconModule, RouterModule],
   templateUrl: './custom-sidenav.component.html',
   styleUrl: './custom-sidenav.component.css'
 })
@@ -29,12 +29,12 @@ export class CustomSidenavComponent {
     {
       icon:  'person',
       lable: 'Employees',
-      route: 'Employees'
+      route: 'employees'
     },
     {
       icon:  'laptop',
       lable: 'IT Assets',
-      route: 'ITAssets'
+      route: 'itAssets'
     },
     {
       icon:  'printer',
@@ -44,42 +44,42 @@ export class CustomSidenavComponent {
     {
       icon:  'help',
       lable: 'IT Ticket',
-      route: 'ITTicket'
+      route: 'itTicket'
     },
     {
       icon:  'inbox',
       lable: 'IT Requests',
-      route: 'ITRequests'
+      route: 'itRequests'
     },
     {
       icon:  'local_shipping',
       lable: 'IT Suppliers',
-      route: 'ITRequest'
+      route: 'itSuppliers'
     },
     {
       icon:  'local_offer',
       lable: 'Quotations',
-      route: 'Quotations'
+      route: 'quotations'
     },
     {
       icon:  'receipt',
       lable: 'Purchase Order',
-      route: 'PurchaseOrder'
+      route: 'purchaseOrder'
     },
     {
       icon:  'file_copy',
       lable: 'Purchase Invoice',
-      route: 'PurchaseInvoice'
+      route: 'purchaseInvoice'
     },
     {
       icon:  'payment',
       lable: 'Payment Request',
-      route: 'PaymentRequest'
+      route: 'paymentRequest'
     },
     {
       icon:  'settings',
       lable: 'Settings',
-      route: 'Settings'
+      route: 'settings'
     },
   ]);
 
