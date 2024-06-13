@@ -10,6 +10,7 @@ import { PurchaseOrderComponent } from './pages/purchase-order/purchase-order.co
 import { PurchaseInvoiceComponent } from './pages/purchase-invoice/purchase-invoice.component';
 import { PaymentRequestComponent } from './pages/payment-request/payment-request.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { QuotationsComponent } from './pages/quotations/quotations.component';
 export const routes: Routes = [
     {
         path:'',
@@ -43,6 +44,10 @@ export const routes: Routes = [
     {
         path:'itSuppliers',
         component:ItSuppliersComponent,
+    },
+    {
+        path:'quotations',
+        component:QuotationsComponent,
     },
     {
         path:'purchaseOrder',

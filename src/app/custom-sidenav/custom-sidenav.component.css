@@ -39,3 +39,10 @@
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
   }
+
+  .mat-mdc-list-item-interactive 
+{
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
