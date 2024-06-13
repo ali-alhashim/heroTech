@@ -4,10 +4,27 @@
     IMS
   </div>
 
+
+
   <div class="notifications-chat">
-    <mat-icon>notifications</mat-icon>
-    <mat-icon>chat</mat-icon>
+
+    <button [matMenuTriggerFor]="NotificationsMenu"><mat-icon>notifications</mat-icon></button>
+
+    <mat-menu #NotificationsMenu="matMenu" xPosition="before">
+      <button mat-menu-item>
+        notifications 1
+      </button>
+      <button mat-menu-item>
+        notifications 3
+      </button>
+    </mat-menu>
+    
+
+    
+
   </div>
+
+
 </mat-toolbar>
 
 

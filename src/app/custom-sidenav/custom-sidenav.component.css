@@ -34,8 +34,8 @@
 
   
   .mdc-list-item--activated {
-    color: #b53f3f !important; /* Note: You could also use a custom theme */
-    border-left: solid 5px #b53f3f;
+    color: #0d7916 !important; /* Note: You could also use a custom theme */
+    border-left: solid 5px #0d7916;
     border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
   }
