@@ -5,6 +5,7 @@ import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 
 const taskData: Task[] = [
   {
@@ -37,7 +38,7 @@ const taskData: Task[] = [
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [MatDividerModule, MatTableModule, MatSlideToggleModule, MatSortModule],
+  imports: [MatDividerModule, MatTableModule, MatSlideToggleModule, MatSortModule, MatPaginatorModule],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
