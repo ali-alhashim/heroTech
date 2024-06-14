@@ -8,6 +8,7 @@
         <!--task card-->
         <div class="card">
          <h3>My Tasks</h3>
+         <input name="searchTask" type="text" placeholder="Search . . . " class="search-input" (keyup)="searchTask()" [(ngModel)]="taskSearchTerm" />
          <mat-divider></mat-divider>
             
          <table mat-table [dataSource]="myTasks" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8">

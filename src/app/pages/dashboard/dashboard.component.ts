@@ -1,4 +1,4 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit  } from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { Task } from '../../interfaces/task';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
@@ -7,6 +7,7 @@ import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {taskData} from '../../mock-data'
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -14,11 +15,12 @@ import {taskData} from '../../mock-data'
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [MatDividerModule, MatTableModule, MatSlideToggleModule, MatSortModule, MatPaginatorModule],
+  imports: [MatDividerModule, MatTableModule, MatSlideToggleModule, MatSortModule, MatPaginatorModule ,FormsModule],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements AfterViewInit {
+  taskSearchTerm :string ='';
   tasksColumns: string[] = ['#', 'Title', 'Date', 'Status'];
   myTasks = new MatTableDataSource(taskData);
 
@@ -26,7 +28,17 @@ export class DashboardComponent implements AfterViewInit {
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  
 
+  searchTask()
+  {
+    //filter task
+    if (this.taskSearchTerm.length > 0) 
+    {
+      // you want to search in task table 
+      console.log('filter task table with:', this.taskSearchTerm);
+    }
+  }
 
 
   ngAfterViewInit() 
