@@ -25,8 +25,12 @@ export class DashboardComponent implements AfterViewInit {
   constructor(private _liveAnnouncer: LiveAnnouncer) {}
 
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  ngAfterViewInit() {
+
+
+  ngAfterViewInit() 
+  {
     this.myTasks.sort = this.sort;
     this.myTasks.sortingDataAccessor = (item: Task, property: string): string | number => {
       switch (property) {
@@ -37,9 +41,14 @@ export class DashboardComponent implements AfterViewInit {
         default: return '';
       }
     };
+
+    this.myTasks.paginator = this.paginator;
   }
 
-  announceSortChange(sortState: Sort) {
+
+
+  announceSortChange(sortState: Sort) 
+  {
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
     } else {
@@ -47,7 +56,8 @@ export class DashboardComponent implements AfterViewInit {
     }
   }
 
-  compare(a: any, b: any, isAsc: boolean) {
+  compare(a: any, b: any, isAsc: boolean) 
+  {
     return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
   }
 }
