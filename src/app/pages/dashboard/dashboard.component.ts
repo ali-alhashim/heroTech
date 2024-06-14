@@ -1,4 +1,4 @@
-import { Component, ViewChild, AfterViewInit  } from '@angular/core';
+import { Component, ViewChild, AfterViewInit} from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { Task } from '../../interfaces/task';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
@@ -8,14 +8,23 @@ import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {taskData} from '../../mock-data'
 import { FormsModule } from '@angular/forms';
-
-
+import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [MatDividerModule, MatTableModule, MatSlideToggleModule, MatSortModule, MatPaginatorModule ,FormsModule],
+  imports: [
+            MatDividerModule, 
+            MatTableModule, 
+            MatSlideToggleModule, 
+            MatSortModule, 
+            MatPaginatorModule ,
+            FormsModule,
+            MatIconModule, 
+            CommonModule,
+          ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
@@ -24,7 +33,37 @@ export class DashboardComponent implements AfterViewInit {
   tasksColumns: string[] = ['#', 'Title', 'Date', 'Status'];
   myTasks = new MatTableDataSource(taskData);
 
-  constructor(private _liveAnnouncer: LiveAnnouncer) {}
+
+
+  cardBodyHeight: string = '';
+  maximizeContent() 
+  {
+      if(this.cardBodyHeight !='fit-content')
+        {
+          this.cardBodyHeight ='fit-content';
+        }
+      else
+      {
+        this.cardBodyHeight =''
+      }
+      
+     
+  }
+
+
+
+  constructor(private _liveAnnouncer: LiveAnnouncer) {
+
+    if (this.taskSearchTerm.length > 0) 
+    {
+    this.myTasks.filterPredicate = (data: Task, filter: string) => 
+    {
+      const searchTerm = filter.trim().toLowerCase();
+      return data.title.toLowerCase().includes(searchTerm);
+    };
+    }
+
+  }
 
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -35,8 +74,8 @@ export class DashboardComponent implements AfterViewInit {
     //filter task
     if (this.taskSearchTerm.length > 0) 
     {
-      // you want to search in task table 
-      console.log('filter task table with:', this.taskSearchTerm);
+      
+      this.myTasks.filter = this.taskSearchTerm.trim().toLowerCase();
     }
   }
 

@@ -6,44 +6,55 @@
     <div class="card-row">
 
         <!--task card-->
-        <div class="card">
-         <h3>My Tasks</h3>
-         <input name="searchTask" type="text" placeholder="Search . . . " class="search-input" (keyup)="searchTask()" [(ngModel)]="taskSearchTerm" />
-         <mat-divider></mat-divider>
+        <div class="card" [ngStyle]="{'height': cardBodyHeight}">
+
+         <div class="card-header">  
+            <h3>My Tasks</h3>
+            <input name="searchTask" type="text" placeholder="Search by Title" class="search-input" (keyup)="searchTask()" [(ngModel)]="taskSearchTerm" />
+
+             <button class="maximizeButton" (click)="maximizeContent()"><mat-icon>aspect_ratio</mat-icon></button>
+
+        </div> <!--card header end-->
+
+        <div class="card-body" id="card-body-tasks" [ngStyle]="{'height': cardBodyHeight}">
+        <mat-divider></mat-divider>   
+                <table mat-table [dataSource]="myTasks" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8">
+
+                    <!-- # Column -->
+                    <ng-container matColumnDef="#">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number"> # </th>
+                        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                    </ng-container>
+
+                    <!-- title Column -->
+                    <ng-container matColumnDef="Title">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Title"> Title </th>
+                        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+                    </ng-container>
+
+                    <!-- date Column -->
+                    <ng-container matColumnDef="Date">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Date"> Date </th>
+                        <td mat-cell *matCellDef="let element"> {{element.createdDate}} </td>
+                    </ng-container>
+
+                    <!-- Status Column -->
+                    <ng-container matColumnDef="Status">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Status"> Status </th>
+                        <td mat-cell *matCellDef="let element"><mat-slide-toggle [checked]=(element.isCompleted)  [disabled]=(element.isCompleted)/></td>
+                    </ng-container>
             
-         <table mat-table [dataSource]="myTasks" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8">
+                    <tr mat-header-row *matHeaderRowDef="tasksColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: tasksColumns;"></tr>
 
-            <!-- # Column -->
-            <ng-container matColumnDef="#">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number"> # </th>
-                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-            </ng-container>
+                </table>
+                
+        </div><!--end card body-->
 
-            <!-- title Column -->
-            <ng-container matColumnDef="Title">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Title"> Title </th>
-                <td mat-cell *matCellDef="let element"> {{element.title}} </td>
-            </ng-container>
-
-            <!-- date Column -->
-            <ng-container matColumnDef="Date">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Date"> Date </th>
-                <td mat-cell *matCellDef="let element"> {{element.createdDate}} </td>
-            </ng-container>
-
-            <!-- Status Column -->
-            <ng-container matColumnDef="Status">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Status"> Status </th>
-                <td mat-cell *matCellDef="let element"><mat-slide-toggle [checked]=(element.isCompleted)  [disabled]=(element.isCompleted)/></td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="tasksColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: tasksColumns;"></tr>
-
-         </table>
-         <mat-divider></mat-divider>
+        <div class="card-footer">
+            <mat-divider></mat-divider>
          <mat-paginator [pageSizeOptions]="[5, 10, 20,30]"  showFirstLastButtons aria-label="Select page of periodic elements"></mat-paginator>
-        
+        </div>
          
        
 
