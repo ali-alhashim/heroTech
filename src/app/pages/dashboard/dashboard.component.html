@@ -12,7 +12,9 @@
             <h3>My Tasks</h3>
             <input name="searchTask" type="text" placeholder="Search by Title" class="search-input" (keyup)="searchTask()" [(ngModel)]="taskSearchTerm" />
 
-             <button class="maximizeButton" (click)="maximizeContent()"><mat-icon>aspect_ratio</mat-icon></button>
+            <button  class="toolbarButton" ><mat-icon>add</mat-icon></button>
+             <button class="toolbarButton" (click)="maximizeContent()"><mat-icon>aspect_ratio</mat-icon></button>
+
 
         </div> <!--card header end-->
 
