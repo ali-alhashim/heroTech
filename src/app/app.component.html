@@ -6,16 +6,16 @@
 
 
 
-  <div class="notifications-chat">
+  <div class="notifications-chat" mat-raised-button matBadge="2" matBadgePosition="after">
 
     <button [matMenuTriggerFor]="NotificationsMenu"><mat-icon>notifications</mat-icon></button>
 
-    <mat-menu #NotificationsMenu="matMenu" xPosition="before">
+    <mat-menu #NotificationsMenu="matMenu" xPosition="before" class="notifications-menu">
       <button mat-menu-item>
-        notifications 1
+        your request has been approved
       </button>
       <button mat-menu-item>
-        notifications 3
+        Ink of HP-05A quantity 0 you have to order
       </button>
     </mat-menu>
     

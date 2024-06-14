@@ -5,6 +5,7 @@ export interface Task
     isCompleted:boolean;
     ownerId    :number;
     assignedBy :number;
-    createdDate:Date;
-    updatedDate:Date;
+    createdDate:Date;    // Note: Months are 0-indexed in JavaScript example first month = 0
+    updatedDate?:Date;
+    note?       :string;
 }
