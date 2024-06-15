@@ -130,7 +130,7 @@ export const taskData: Task[] =
       "isManager": true,
       "first_name": "Michael",
       "last_name": "Brown",
-      "badge_number": "E1123"
+      "badge_number": "A1123"
   },
   {
       "id": 6,

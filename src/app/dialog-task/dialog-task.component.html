@@ -24,8 +24,9 @@
 </div>
 
 <div mat-dialog-actions>
-    <button mat-button (click)="closeTaskDialog()">Cancel</button>
-    <button mat-button [mat-dialog-close]="addNewTask()" cdkFocusInitial>Save</button>
+    <button mat-button mat-dialog-close>Cancel</button>
+    
+    <button mat-button (click)="addNewTask()" cdkFocusInitial   mat-dialog-close>Save</button>
 </div>
   
 <!--/end------------------------>

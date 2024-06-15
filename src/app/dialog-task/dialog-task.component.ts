@@ -25,6 +25,7 @@ export class DialogTaskComponent implements OnInit{
   employeeList = employeeData;
   myControl = new FormControl<string | Employee>('');
   filteredOptions!: Observable<Employee[]>;
+  
 
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges.pipe(
@@ -43,6 +44,7 @@ export class DialogTaskComponent implements OnInit{
   }
 
   displayFn(employee: Employee): string {
+  
     return employee && employee.badge_number ? employee.badge_number : '';
   }
 
@@ -56,12 +58,9 @@ export class DialogTaskComponent implements OnInit{
 
 
   addNewTask(){
-    console.log("Add New Task");
+    console.log(`Add new Task `);
   }
 
-  closeTaskDialog(): void
-  {
-    this.taskDialog.closeAll()
-  }
+  
 
 }
