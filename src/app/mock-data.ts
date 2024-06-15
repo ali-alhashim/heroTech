@@ -1,5 +1,5 @@
 import {Task} from './interfaces/task';
-
+import { Employee } from './interfaces/employee';
 export const taskData: Task[] = 
 [
   {
@@ -87,3 +87,90 @@ export const taskData: Task[] =
     note: 'Created new user account successfully'
   }
   ];
+
+
+
+  export const employeeData:Employee[] = [
+
+    {
+      "id": 1,
+      "isActive": true,
+      "isManager": true,
+      "first_name": "Ali",
+      "last_name": "Alhashim",
+      "badge_number": "A0954"
+  },
+  {
+      "id": 2,
+      "isActive": false,
+      "isManager": false,
+      "first_name": "Lina",
+      "last_name": "Smith",
+      "badge_number": "B2034"
+  },
+  {
+      "id": 3,
+      "isActive": true,
+      "isManager": false,
+      "first_name": "John",
+      "last_name": "Doe",
+      "badge_number": "C3456"
+  },
+  {
+      "id": 4,
+      "isActive": false,
+      "isManager": true,
+      "first_name": "Emma",
+      "last_name": "Johnson",
+      "badge_number": "D7890"
+  },
+  {
+      "id": 5,
+      "isActive": true,
+      "isManager": true,
+      "first_name": "Michael",
+      "last_name": "Brown",
+      "badge_number": "E1123"
+  },
+  {
+      "id": 6,
+      "isActive": true,
+      "isManager": false,
+      "first_name": "Sophia",
+      "last_name": "Martinez",
+      "badge_number": "F4567"
+  },
+  {
+      "id": 7,
+      "isActive": false,
+      "isManager": false,
+      "first_name": "David",
+      "last_name": "Wilson",
+      "badge_number": "G8901"
+  },
+  {
+      "id": 8,
+      "isActive": true,
+      "isManager": true,
+      "first_name": "Olivia",
+      "last_name": "Taylor",
+      "badge_number": "H2345"
+  },
+  {
+      "id": 9,
+      "isActive": false,
+      "isManager": false,
+      "first_name": "James",
+      "last_name": "Anderson",
+      "badge_number": "I6789"
+  },
+  {
+      "id": 10,
+      "isActive": true,
+      "isManager": false,
+      "first_name": "Charlotte",
+      "last_name": "Thomas",
+      "badge_number": "J0123"
+  }
+
+  ]

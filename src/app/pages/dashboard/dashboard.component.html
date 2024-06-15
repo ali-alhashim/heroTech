@@ -5,14 +5,15 @@
 
     <div class="card-row">
 
-        <!--task card-->
+        <!--*****************************task card**************************************************************************************-->
         <div class="card" [ngStyle]="{'height': cardBodyHeight}">
 
          <div class="card-header">  
             <h3>My Tasks</h3>
             <input name="searchTask" type="text" placeholder="Search by Title" class="search-input" (keyup)="searchTask()" [(ngModel)]="taskSearchTerm" />
 
-            <button  class="toolbarButton" ><mat-icon>add</mat-icon></button>
+            <button  class="toolbarButton" matTooltip="Add New Task" (click)="openTaskDialog()"><mat-icon>add</mat-icon></button>
+
              <button class="toolbarButton" (click)="maximizeContent()"><mat-icon>aspect_ratio</mat-icon></button>
 
 
@@ -61,7 +62,10 @@
        
 
         </div>
-        <!--end task card-->
+        <!--*******************************end task card**************************************************************************-->
+
+
+
         <div class="card">
             <h3>My Requests</h3>
             <mat-divider></mat-divider>
@@ -74,3 +78,11 @@
     </div>
 
 </div>
+
+
+
+
+
+
+
+

@@ -1,4 +1,4 @@
-import { Component, ViewChild, AfterViewInit} from '@angular/core';
+import { Component, ViewChild, AfterViewInit, inject} from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { Task } from '../../interfaces/task';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
@@ -10,8 +10,11 @@ import {taskData} from '../../mock-data'
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-
-
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {DialogTaskComponent} from '../../dialog-task/dialog-task.component'
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -24,17 +27,26 @@ import { CommonModule } from '@angular/common';
             FormsModule,
             MatIconModule, 
             CommonModule,
+            MatTooltipModule,
+            MatFormFieldModule,
+            MatInputModule,
+            FormsModule,
+            MatDialogModule,
           ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements AfterViewInit {
+
+  
+
   taskSearchTerm :string ='';
   tasksColumns: string[] = ['#', 'Title', 'Date', 'Status'];
   myTasks = new MatTableDataSource(taskData);
 
 
 
+  // maximize card of task
   cardBodyHeight: string = '';
   maximizeContent() 
   {
@@ -52,16 +64,17 @@ export class DashboardComponent implements AfterViewInit {
 
 
 
-  constructor(private _liveAnnouncer: LiveAnnouncer) {
+  constructor(private _liveAnnouncer: LiveAnnouncer, private taskDialog:MatDialog) 
+  {
 
-    if (this.taskSearchTerm.length > 0) 
-    {
-    this.myTasks.filterPredicate = (data: Task, filter: string) => 
-    {
-      const searchTerm = filter.trim().toLowerCase();
-      return data.title.toLowerCase().includes(searchTerm);
-    };
-    }
+      if (this.taskSearchTerm.length > 0) 
+      {
+      this.myTasks.filterPredicate = (data: Task, filter: string) => 
+      {
+        const searchTerm = filter.trim().toLowerCase();
+        return data.title.toLowerCase().includes(searchTerm);
+      };
+      }
 
   }
 
@@ -80,6 +93,7 @@ export class DashboardComponent implements AfterViewInit {
   }
 
 
+  //sort task
   ngAfterViewInit() 
   {
     this.myTasks.sort = this.sort;
@@ -106,6 +120,17 @@ export class DashboardComponent implements AfterViewInit {
       this._liveAnnouncer.announce('Sorting cleared');
     }
   }
+
+
+  openTaskDialog()
+  {
+    this.taskDialog.open(DialogTaskComponent,{
+      width:'60%',
+      height:'400px'
+    })
+  }
+
+ 
 
 
 }

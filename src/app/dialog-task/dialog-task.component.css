@@ -1,0 +1,15 @@
+.mdc-dialog__content{
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.mdc-dialog__actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.mdc-dialog__actions button{
+    padding: 5px;
+}
