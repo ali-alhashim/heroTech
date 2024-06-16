@@ -98,7 +98,8 @@ export const taskData: Task[] =
       "isManager": true,
       "first_name": "Ali",
       "last_name": "Alhashim",
-      "badge_number": "A0954"
+      "badge_number": "A0954",
+      "department_code":"DAMM-IT"
   },
   {
       "id": 2,
@@ -106,7 +107,8 @@ export const taskData: Task[] =
       "isManager": false,
       "first_name": "Lina",
       "last_name": "Smith",
-      "badge_number": "B2034"
+      "badge_number": "B2034",
+      "department_code":"JED-SALES"
   },
   {
       "id": 3,
@@ -114,7 +116,8 @@ export const taskData: Task[] =
       "isManager": false,
       "first_name": "John",
       "last_name": "Doe",
-      "badge_number": "C3456"
+      "badge_number": "C3456",
+      "department_code":"DAMM-HR"
   },
   {
       "id": 4,
@@ -122,7 +125,8 @@ export const taskData: Task[] =
       "isManager": true,
       "first_name": "Emma",
       "last_name": "Johnson",
-      "badge_number": "D7890"
+      "badge_number": "D7890",
+      "department_code":"DAMM-HR"
   },
   {
       "id": 5,
@@ -130,7 +134,8 @@ export const taskData: Task[] =
       "isManager": true,
       "first_name": "Michael",
       "last_name": "Brown",
-      "badge_number": "A1123"
+      "badge_number": "A1123",
+      "department_code":"RHD-FINANCE"
   },
   {
       "id": 6,
@@ -138,7 +143,8 @@ export const taskData: Task[] =
       "isManager": false,
       "first_name": "Sophia",
       "last_name": "Martinez",
-      "badge_number": "F4567"
+      "badge_number": "F4567",
+      "department_code":"DAMM-FINANCE"
   },
   {
       "id": 7,
@@ -146,7 +152,8 @@ export const taskData: Task[] =
       "isManager": false,
       "first_name": "David",
       "last_name": "Wilson",
-      "badge_number": "G8901"
+      "badge_number": "G8901",
+      "department_code":"RHD-FINANCE"
   },
   {
       "id": 8,
@@ -154,7 +161,8 @@ export const taskData: Task[] =
       "isManager": true,
       "first_name": "Olivia",
       "last_name": "Taylor",
-      "badge_number": "H2345"
+      "badge_number": "H2345",
+      "department_code":"DAMM-MARKETING"
   },
   {
       "id": 9,
@@ -162,7 +170,8 @@ export const taskData: Task[] =
       "isManager": false,
       "first_name": "James",
       "last_name": "Anderson",
-      "badge_number": "I6789"
+      "badge_number": "I6789",
+      "department_code":"DAMM-MARKETING"
   },
   {
       "id": 10,
@@ -170,7 +179,8 @@ export const taskData: Task[] =
       "isManager": false,
       "first_name": "Charlotte",
       "last_name": "Thomas",
-      "badge_number": "J0123"
+      "badge_number": "J0123",
+      "department_code":"DAMM-MARKETING"
   }
 
   ]

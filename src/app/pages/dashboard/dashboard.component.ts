@@ -138,6 +138,7 @@ export class DashboardComponent implements AfterViewInit {
       if (confirmed) {
         console.log("You confirmed, so the task will be sent to the server to update the database.");
         this.updateTaskStatus(taskId, event.checked);
+        event.source.disabled = true;
       } else {
         console.log("You canceled, nothing will be sent.");
         event.source.checked = false; // Revert the toggle state
