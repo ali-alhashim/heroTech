@@ -2,25 +2,35 @@
 <h2 mat-dialog-title>New Task</h2>
 
 <div mat-dialog-content>
-   
+  
 
     <mat-form-field>
       <mat-label>Task Title</mat-label>
-      <input matInput />
+      <input matInput  [formControl]="taskTitle"/>
     </mat-form-field>    
 
     <mat-form-field class="example-full-width">
         <mat-label>Assignee</mat-label>
-        <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" id="assignee-to" >
+        <input type="text" matInput [formControl]="assigneeTo" [matAutocomplete]="auto" id="assignee-to" >
         <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-          @for (option of filteredOptions | async; track option) 
-          {
-            <mat-option [value]="option">{{option.first_name}} {{option.last_name}}  {{option.badge_number}}</mat-option>
-          }
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option.first_name}} {{option.last_name}} {{option.badge_number}}
+        </mat-option>
         </mat-autocomplete>
     </mat-form-field>
+
+    <!--as standard for any task the default deadline will be after one week-->
+    <!--current date + 7 days this the deadline date -->
+    <mat-form-field>
+      <mat-label>Deadline Date</mat-label>
+      <input matInput [matDatepicker]="picker" [formControl]="deadlineDate">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    
    
-      
+
 </div>
 
 <div mat-dialog-actions>

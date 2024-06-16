@@ -7,5 +7,6 @@ export interface Task
     assignedBy :number;
     createdDate:Date;    // Note: Months are 0-indexed in JavaScript example first month = 0
     updatedDate?:Date;
+    deadline?   :Date;
     note?       :string;
 }
