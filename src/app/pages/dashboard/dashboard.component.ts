@@ -2,7 +2,7 @@ import { Component, ViewChild, AfterViewInit, inject} from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { Task } from '../../interfaces/task';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSlideToggle, MatSlideToggleModule,MatSlideToggleChange  } from '@angular/material/slide-toggle';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
@@ -128,6 +128,27 @@ export class DashboardComponent implements AfterViewInit {
       width:'60%',
       height:'400px'
     })
+  }
+
+
+
+  onToggleChange(taskId: number, event: MatSlideToggleChange) {
+    if (event.checked) {
+      const confirmed = confirm(`Are you sure you want to close Task# ${taskId}?`);
+      if (confirmed) {
+        console.log("You confirmed, so the task will be sent to the server to update the database.");
+        this.updateTaskStatus(taskId, event.checked);
+      } else {
+        console.log("You canceled, nothing will be sent.");
+        event.source.checked = false; // Revert the toggle state
+      }
+    }
+  }
+
+  updateTaskStatus(taskId: number, isCompleted: boolean) {
+    // Logic to update the task status on the server
+    console.log(`Task ${taskId} status updated to: ${isCompleted}`);
+    
   }
 
  

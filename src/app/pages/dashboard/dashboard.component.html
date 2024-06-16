@@ -44,7 +44,10 @@
                     <!-- Status Column -->
                     <ng-container matColumnDef="Status">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by Status"> Status </th>
-                        <td mat-cell *matCellDef="let element"><mat-slide-toggle [checked]=(element.isCompleted)  [disabled]=(element.isCompleted)/></td>
+                        <td mat-cell *matCellDef="let element">
+                            <mat-slide-toggle [checked]=(element.isCompleted)  [disabled]=(element.isCompleted) (change)="onToggleChange(element.id, $event)" />
+                        </td>
+                            
                     </ng-container>
             
                     <tr mat-header-row *matHeaderRowDef="tasksColumns"></tr>
