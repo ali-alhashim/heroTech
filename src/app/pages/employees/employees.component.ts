@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { CommonModule } from '@angular/common';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
@@ -10,6 +10,9 @@ import { MatIconModule } from '@angular/material/icon';
 import {employeeData} from '../../mock-data';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { Employee } from '../../interfaces/employee';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {DialogEmployeeComponent} from '../../dialog-employee/dialog-employee.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-employees',
   standalone: true,
@@ -22,11 +25,12 @@ import { Employee } from '../../interfaces/employee';
     MatSortModule,
     MatFormFieldModule,
     MatIconModule,
+    MatTooltipModule,
   ],
   templateUrl: './employees.component.html',
   styleUrl: './employees.component.css'
 })
-export class EmployeesComponent {
+export class EmployeesComponent implements AfterViewInit {
 
   employeeSearchTerm:string ='';
   employeesData = new MatTableDataSource(employeeData);
@@ -71,10 +75,13 @@ export class EmployeesComponent {
 
    openEmployeeDialog()
    {
-
+      this.employeeDialog.open(DialogEmployeeComponent,{
+        width:'60%',
+        height:'80%'
+      })
    }
 
-   constructor(private _liveAnnouncer: LiveAnnouncer)
+   constructor(private _liveAnnouncer: LiveAnnouncer,private employeeDialog:MatDialog)
    {
 
     if (this.employeeSearchTerm.length > 0) 

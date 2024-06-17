@@ -1,5 +1,6 @@
 import {Task} from './interfaces/task';
 import { Employee } from './interfaces/employee';
+import { Department } from './interfaces/department';
 export const taskData: Task[] = 
 [
   {
@@ -183,4 +184,33 @@ export const taskData: Task[] =
       "department_code":"DAMM-MARKETING"
   }
 
-  ]
+  ];
+
+
+  export const departmentData:Department[] = 
+  [
+   {
+    department_code : 'DAMM-MARKETING',
+    name:'Marketing'
+   },
+   {
+    department_code : 'RHD-FINANCE',
+    name:'Finance'
+   },
+   {
+    department_code : 'DAMM-FINANCE',
+    name:'Finance'
+   },
+   {
+    department_code : 'DAMM-HR',
+    name:'HR'
+   },
+   {
+    department_code : 'JED-SALES',
+    name:'Sales'
+   },
+   
+  ];
+
+
+

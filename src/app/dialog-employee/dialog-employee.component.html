@@ -1,0 +1,77 @@
+<!--Dialog for adding new Employee-->
+<h2 mat-dialog-title>New Employee</h2>
+
+<div mat-dialog-content>
+  
+
+    <mat-form-field>
+      <mat-label>First Name</mat-label>
+      <input matInput  [formControl]="firstName"/>
+    </mat-form-field>    
+
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input matInput  [formControl]="lastName"/>
+    </mat-form-field>    
+
+    <mat-form-field>
+        <mat-label>Department Code</mat-label>
+        <input type="text" matInput [formControl]="departmentCode" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option.name}} {{option.department_code}}
+        </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Badge Number</mat-label>
+      <input matInput  [formControl]="badgeNumber"/>
+    </mat-form-field>   
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput  [formControl]="email"/>
+    </mat-form-field> 
+
+    <mat-form-field>
+      <mat-label>Job Title</mat-label>
+      <input matInput  [formControl]="jobTitle"/>
+    </mat-form-field> 
+
+    <mat-form-field>
+      <mat-label>Mobile Number</mat-label>
+      <input matInput  [formControl]="mobileNumber"/>
+    </mat-form-field> 
+
+   
+
+
+    
+
+   
+    <mat-form-field>
+      <mat-label>Birthday</mat-label>
+      <input matInput [matDatepicker]="picker" [formControl]="birthDay">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>national Id</mat-label>
+      <input matInput  [formControl]="nationalId"/>
+    </mat-form-field> 
+    
+   
+
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    
+    <button mat-button (click)="addNewEmployee()" cdkFocusInitial   mat-dialog-close>Save</button>
+</div>
+  
+<!--/end------------------------>
+

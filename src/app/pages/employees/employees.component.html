@@ -12,9 +12,9 @@
 
          <div class="card-header">  
            
-            <input name="searchTask" type="text" placeholder="Search by Title" class="search-input" (keyup)="searchEmployee()" [(ngModel)]="employeeSearchTerm" />
+            <input name="searchTask" type="text" placeholder="Search..." class="search-input" (keyup)="searchEmployee()" [(ngModel)]="employeeSearchTerm" />
 
-            <button  class="toolbarButton" matTooltip="Add New Task" (click)="openEmployeeDialog()"><mat-icon>add</mat-icon></button>
+            <button  class="toolbarButton" matTooltip="Add New Employee" (click)="openEmployeeDialog()"><mat-icon>add</mat-icon></button>
 
              <button class="toolbarButton" (click)="maximizeContent()"><mat-icon>aspect_ratio</mat-icon></button>
 
